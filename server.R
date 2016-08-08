@@ -72,7 +72,7 @@ ui_login_page <- function() {
            </div>
             <hr>
             <div  style='font-size:small; text-align:center;'>
-             If you are experiencing technical difficulties, please  <a href='mailto:solution.support@cz.ey.com'>contact us</a>
+              Type <b> demo </b> as username and password  
             </div>
           </form>
       ")
@@ -567,7 +567,7 @@ outputOptions(output, "historical_settings_sec", suspendWhenHidden = FALSE)
   output$choose_date <- renderUI( {    
     if( !is.null(user_dataset_sec() ) ) {  
         dates <- sort(unique(user_dataset_sec()$record_date))
-        selectInput("select_date","" ,choices  = dates ,selected = "2012-12-31" , multiple=FALSE,  selectize = FALSE)        
+        selectInput("select_date","" ,choices  = as.character(dates) ,selected = "2012-12-31" , multiple=FALSE,  selectize = FALSE)        
     } else { return(NULL) }    
   })
 
